@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode to GitHub",
+  "version": "1.4",
+  "permissions": ["scripting", "storage", "activeTab", "clipboardRead", "tabs"],
+  "host_permissions": ["https://leetcode.com/*", "https://api.github.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "LeetCode Sync",
+    "default_popup": "popup.html"
+  }
+}
